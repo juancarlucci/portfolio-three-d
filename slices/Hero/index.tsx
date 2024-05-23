@@ -19,20 +19,37 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       // create as many GSAP animations and/or ScrollTriggers here as you want...
-      gsap.timeline().fromTo(
-        ".name-animation",
-        { x: -100, opacity: 0, rotate: -10 },
-        {
-          x: 0,
-          opacity: 1,
-          rotate: 0,
-
-          ease: "elastic.out(1,0.3)",
-          duration: 1,
-          transformOrigin: "left top",
-          stagger: { each: 0.1, from: "random" },
-        }
-      );
+      gsap
+        .timeline()
+        .fromTo(
+          ".name-animation",
+          { x: -100, opacity: 0, rotate: -10 },
+          {
+            x: 0,
+            opacity: 1,
+            rotate: 0,
+            delay: 0.3,
+            ease: "elastic.out(1,0.73)",
+            duration: 0.3,
+            transformOrigin: "left top",
+            stagger: { each: 0.1, from: "random" },
+          }
+        )
+        .fromTo(
+          ".tag-line",
+          {
+            y: 20,
+            opacity: 0,
+            scale: 1.2,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scale: 1,
+            ease: "elastic.out(1,0.3)",
+          }
+        );
     }, component);
     return () => ctx.revert(); // cleanup!
   }, []);
@@ -70,7 +87,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               {renderLetters(slice.primary.last_name, "last")}
             </span>
           </h1>
-          <span className="block bg-gradient-to-tr from-red-500 via-orange-200 to-red-100 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-100 md:text-4xl">
+          <span className="tag-line block bg-gradient-to-tr from-red-500 via-orange-200 to-red-100 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
             {slice.primary.tag_line}
           </span>
         </div>
