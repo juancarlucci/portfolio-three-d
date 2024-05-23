@@ -2,8 +2,8 @@
 import { use, useEffect, useRef } from "react";
 import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import gsap from "gsap";
-
+import { gsap } from "gsap";
+import PaddedContainer from "@/app/components/PaddedContainer";
 /**
  * Props for `Hero`.
  */
@@ -67,7 +67,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   };
 
   return (
-    <section
+    <PaddedContainer
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       ref={component}
@@ -92,7 +92,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </span>
         </div>
       </div>
-    </section>
+    </PaddedContainer>
   );
 };
 
