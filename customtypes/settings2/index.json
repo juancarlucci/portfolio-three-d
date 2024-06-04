@@ -1,0 +1,15 @@
+{
+  "format": "custom",
+  "id": "settings2",
+  "label": "Settings2",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone"
+      }
+    }
+  }
+}
